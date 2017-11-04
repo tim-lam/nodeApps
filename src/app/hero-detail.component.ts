@@ -10,6 +10,7 @@ import { Hero } from './hero';
   selector: 'hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
+//#region "old template"
   //   template: `
   //     <div *ngIf="hero">
   //       <h2>{{hero.name}} details!</h2>
@@ -21,6 +22,7 @@ import { Hero } from './hero';
   //       <button (click)="goBack()">Back</button>
   //     </div>
   // `
+  //#endregion
 })
 export class HeroDetailComponent implements OnInit {
   constructor(
@@ -28,13 +30,18 @@ export class HeroDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) { }
+
   @Input() hero: Hero;
-  goBack(): void {
-    this.location.back();
-  }
   ngOnInit(): void {
     this.route.paramMap
       .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
       .subscribe(hero => this.hero = hero);
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  save(): void {
+    this.heroService.update(this.hero)
+      .then(() => this.goBack());
   }
 }

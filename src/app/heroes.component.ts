@@ -8,6 +8,7 @@ import { HeroService } from './hero.service';
   selector: 'my-heroes',
   styleUrls: ['./heroes.component.css'],
   templateUrl: './heroes.component.html',
+  //#region "old template"
   // template: `
   //   <h1>{{title}}</h1>
   //   <h2>My Heroes</h2>
@@ -20,7 +21,8 @@ import { HeroService } from './hero.service';
   //   </ul>
   //   <hero-detail [hero]="selectedHero"></hero-detail>
   //   `,
-  //providers: [HeroService]
+  // providers: [HeroService]
+  //#endregion
 })
 export class HeroesComponent implements OnInit {
   constructor(
@@ -39,5 +41,22 @@ export class HeroesComponent implements OnInit {
   }
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
+  }
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.create(name)
+      .then(hero => {
+        this.heroes.push(hero);
+        this.selectedHero = null;
+      });
+  }
+  delete(hero: Hero): void {
+    this.heroService
+        .delete(hero.id)
+        .then(() => {
+          this.heroes = this.heroes.filter(h => h !== hero);
+          if (this.selectedHero === hero) { this.selectedHero = null; }
+        });
   }
 }
