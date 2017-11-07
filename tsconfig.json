@@ -1,6 +1,35 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./src",
+    // "rootDirs": [
+    //   "src/views",
+    //   "generated/templates/views"
+    // ],
+    "paths": {
+      "*": [
+        "app/*"
+      ],
+      "components/*": [
+        "app/dashboard/components/*",
+        "app/heroes/components/*",
+        "app/components/*"
+      ],
+      "services/*": [
+        "app/dashboard/services/*",
+        "app/heroes/services/*",
+        "app/services/*"
+      ]
+
+      //"dashboard/*": ["app/dashboard/*"],
+      //"heroes/*": ["app/heroes/*"],
+      //"data-access/*": ["app/data-access/*"]
+    },
+    // "baseUrl": "./", // all paths are relative to the baseUrl
+    // "paths": {
+    //   "~/*": ["./*"], // resolve any `~/foo/bar` to `<baseUrl>/foo/bar`
+    //   "app/*": ["src/app/*"]
+    // },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
