@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { HeroService } from 'services/hero.service';
-import { Hero } from 'heroes/hero';
+import { Hero } from 'models/hero';
 
 @Component({
   selector: 'hero-detail',
@@ -31,6 +31,10 @@ export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
   goBack(): void {
     this.location.back();
+  }
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
   }
   ngOnInit(): void {
     this.route.paramMap

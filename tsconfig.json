@@ -10,15 +10,21 @@
       "*": [
         "app/*"
       ],
+      "models/*": [
+        "app/hero/*.ts"
+      ],
       "components/*": [
         "app/dashboard/components/*",
-        "app/heroes/components/*",
-        "app/components/*"
+        "app/hero/components/*",
+        "app/components/*",
+        "app/message/components/*",
+        "app/hero-search/components/*"
       ],
       "services/*": [
         "app/dashboard/services/*",
-        "app/heroes/services/*",
-        "app/services/*"
+        "app/hero/services/*",
+        "app/services/*",
+        "app/message/services/*"
       ]
 
       //"dashboard/*": ["app/dashboard/*"],
