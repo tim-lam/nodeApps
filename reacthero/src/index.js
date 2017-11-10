@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Hero {
-    get id() { }
-    set id(id) { }
-    get name() { }
-    set name(value) { }
+    get id() { this._id; }
+    set id(value) { this._id = value; }
+    get name() { return this._name; }
+    set name(value) { this._name = value; }
 }
 
 
@@ -20,6 +20,7 @@ class Heroes extends React.Component {
     // set title(value) {this._title = value;}
     render() {
         var selectedHero = new Hero();
+        selectedHero = null;
         var count = [1, 2, 3];
         return (
             <div>
@@ -31,55 +32,53 @@ class Heroes extends React.Component {
                             <li>{index}</li>
                         ))
                     }
-                    {((() => {
-                        var a = ``;
-                        for (var i = 0; i < 10; i++) {
-                            
-                            a = a + (<i>1</i>);
-                        }
-                        return a;
-                    })())
-                    }
                 </ul>
-                if(selectedHero){
-                    <div>
-                        <h2>
-                            {selectedHero.name} is my hero
-                        </h2>
-                        <button click="gotoDetail()">View Details</button>
-                    </div>
+                {
+                    (() => {
+                        if (selectedHero) {
+
+                            return (
+                                <div>
+                                    <h2>
+                                        {selectedHero.name} is my hero
+                                    </h2>
+                                    <button click="gotoDetail()">View Details</button>
+                                </div>
+                            )
+                        }
+                    })()
                 }
             </div>
         );
     }
 }
 class App extends React.Component {
-    render() {
-        var title = 'Tour of React Heroes';
+                    render() {
+                var title = 'Tour of React Heroes';
         return (
             <div>
-                <h1>{title}</h1>
-                <Heroes />
-            </div>
-        );
+                    <h1>{title}</h1>
+                    <Heroes />
+                </div>
+                );
     }
     //#region old code
     //   constructor() {
-    //     super();
-    //     this.state = {
-    //       history: [
-    //         {
-    //           squares: Array(9).fill(null)
-    //         }
-    //       ],
-    //       stepNumber: 0,
-    //       xIsNext: true
-    //     };
-    //   }
-    //#endregion
-}
+                    //     super();
+                    //     this.state = {
+                    //       history: [
+                    //         {
+                    //           squares: Array(9).fill(null)
+                    //         }
+                    //       ],
+                    //       stepNumber: 0,
+                    //       xIsNext: true
+                    //     };
+                    //   }
+                    //#endregion
+                }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+                ReactDOM.render(<App />, document.getElementById("root"));
 // // <!doctype html>
 // // <html lang="en">
 // // <head>
