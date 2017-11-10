@@ -3,43 +3,54 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Hero {
-    get id(){}
-    set id(id){}
-    get name(){}
-    set name(value){}
+    get id() { }
+    set id(id) { }
+    get name() { }
+    set name(value) { }
 }
 
 
-  
-class Heroes extends React.Component{
+
+class Heroes extends React.Component {
     // constructor(value){
     //     super();
     //     this._title = value; 
     // }
     // get title() {return this._title;}
     // set title(value) {this._title = value;}
-    render(){
-        var selectedHero  = new Hero();
-        var count = [1,2,3];
+    render() {
+        var selectedHero = new Hero();
+        var count = [1, 2, 3];
         return (
             <div>
-            <h2>My Heroes</h2>
-            <ul class="heroes">
-            { count.map((item, index) => (
-                <li>{index}</li>
-            ))} 
-           
-            </ul>
-            if(selectedHero){
-            <div>
-              <h2>
-              {selectedHero.name } is my hero
-              </h2>
-              <button click="gotoDetail()">View Details</button>
-            </div> 
-            }
-        </div>
-    );
+                <h2>My Heroes</h2>
+                <ul class="heroes">
+                    {
+
+                        count.map((item, index) => (
+                            <li>{index}</li>
+                        ))
+                    }
+                    {((() => {
+                        var a = ``;
+                        for (var i = 0; i < 10; i++) {
+                            
+                            a = a + (<i>1</i>);
+                        }
+                        return a;
+                    })())
+                    }
+                </ul>
+                if(selectedHero){
+                    <div>
+                        <h2>
+                            {selectedHero.name} is my hero
+                        </h2>
+                        <button click="gotoDetail()">View Details</button>
+                    </div>
+                }
+            </div>
+        );
     }
 }
 class App extends React.Component {
@@ -47,8 +58,8 @@ class App extends React.Component {
         var title = 'Tour of React Heroes';
         return (
             <div>
-            <h1>{ title }</h1>
-            <Heroes/>
+                <h1>{title}</h1>
+                <Heroes />
             </div>
         );
     }
