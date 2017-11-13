@@ -9,17 +9,22 @@ class Hero {
     set name(value) { this._name = value; }
 }
 
-
-
+export const HEROES: new Hero[] = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+  ];
 class Heroes extends React.Component {
-    // constructor(value){
-    //     super();
-    //     this._title = value; 
-    // }
-    // get title() {return this._title;}
-    // set title(value) {this._title = value;}
     render() {
         var selectedHero = new Hero();
+        selectedHero.name = "dd";
         selectedHero = null;
         var count = [1, 2, 3];
         return (
@@ -33,52 +38,45 @@ class Heroes extends React.Component {
                         ))
                     }
                 </ul>
-                {
-                    (() => {
-                        if (selectedHero) {
-
-                            return (
-                                <div>
-                                    <h2>
-                                        {selectedHero.name} is my hero
-                                    </h2>
-                                    <button click="gotoDetail()">View Details</button>
-                                </div>
-                            )
-                        }
-                    })()
+                {(selectedHero)
+                    ?
+                    <div>
+                        <h2>{selectedHero.name} is my hero</h2>
+                        <button click="gotoDetail()">View Details</button>
+                    </div>
+                    : ''
                 }
             </div>
         );
     }
 }
 class App extends React.Component {
-                    render() {
-                var title = 'Tour of React Heroes';
+    render() {
+        var title = 'Tour of React Heroes';
         return (
             <div>
-                    <h1>{title}</h1>
-                    <Heroes />
-                </div>
-                );
+                <h1>{title}</h1>
+                <Heroes />
+            </div>
+        );
     }
     //#region old code
     //   constructor() {
-                    //     super();
-                    //     this.state = {
-                    //       history: [
-                    //         {
-                    //           squares: Array(9).fill(null)
-                    //         }
-                    //       ],
-                    //       stepNumber: 0,
-                    //       xIsNext: true
-                    //     };
-                    //   }
-                    //#endregion
-                }
+    //     super();
+    //     this.state = {
+    //       history: [
+    //         {
+    //           squares: Array(9).fill(null)
+    //         }
+    //       ],
+    //       stepNumber: 0,
+    //       xIsNext: true
+    //     };
+    //   }
+    //#endregion
+}
 
-                ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 // // <!doctype html>
 // // <html lang="en">
 // // <head>
