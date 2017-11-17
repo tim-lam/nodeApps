@@ -1,3 +1,13 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]"  class="col-1-4">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </div>
+</div>
+<app-hero-search></app-hero-search>
+
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { HEROES } from '../mock-heroes';
@@ -24,24 +34,3 @@ class Heroes extends React.Component {
     );
   }
 }
-
-/* <h1>{{title}}</h1>
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-    (click)="delete(hero)">x</button>
-  </li>
-</ul>
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name | uppercase}} is my hero
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
-</div>
-<!-- <hero-detail [hero]="selectedHero"></hero-detail> --> */
-
-export default Heroes;

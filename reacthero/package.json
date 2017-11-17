@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "history": "^4.7.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-router-dom": "^4.2.2",
+    "react-router-link": "^2.0.2",
     "react-scripts-ts": "2.8.0"
   },
   "scripts": {
@@ -14,9 +17,11 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/history": "^4.6.2",
     "@types/jest": "^21.1.6",
     "@types/node": "^8.0.51",
     "@types/react": "^16.0.22",
-    "@types/react-dom": "^16.0.3"
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router-dom": "^4.2.1"
   }
 }

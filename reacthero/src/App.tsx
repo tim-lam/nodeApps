@@ -1,22 +1,31 @@
 import * as React from 'react';
 import './App.css';
 import Heroes from './hero/components/heroes.component';
-
-const logo = require('./logo.svg');
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 class App extends React.Component {
+
   render() {
+    var title = 'Tour of Heroes';
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome tod React</h2>
-        </div>
-        <Heroes/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
+      <Router>
+        <div>
+          <h1>{title}</h1>
+          <nav>
+            <Link to="/dashboard" >Dashboard</Link>
+            <Link to="/heroes" >Heroes</Link>
+          </nav>
+          <Route exact path="/" component={Heroes} />
+          <Route path="/heroes" component={Heroes} />
+          <p className="App-intro">
+            To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
