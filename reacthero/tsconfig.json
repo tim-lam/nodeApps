@@ -1,5 +1,32 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    // "rootDirs": [
+    //   "src/views",
+    //   "generated/templates/views"
+    // ],
+    "paths": {
+      // "*": [
+      //   "app/*"
+      // ],
+      "models/*": [
+        "hero/*.tsx"
+      ],
+      "data-access/*":["data-access/*"],
+      "components/*": [
+        "dashboard/components/*",
+        "hero/components/*",
+        "components/*",
+        "message/components/*",
+        "hero-search/components/*"
+      ],
+      "services/*": [
+        "dashboard/services/*",
+        "hero/services/*",
+        "services/*",
+        "message/services/*"
+      ]
+    },
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",

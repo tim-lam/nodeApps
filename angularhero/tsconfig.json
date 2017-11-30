@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "src",
     // "rootDirs": [
     //   "src/views",
     //   "generated/templates/views"

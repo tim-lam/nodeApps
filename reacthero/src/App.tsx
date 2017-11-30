@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import Heroes from './hero/components/heroes.component';
+import Heroes from './heroes.component';
+import Dashboard from './dashboard.component';
 import {
   BrowserRouter as Router,
   Route,
@@ -19,7 +20,8 @@ class App extends React.Component {
             <Link to="/dashboard" >Dashboard</Link>
             <Link to="/heroes" >Heroes</Link>
           </nav>
-          <Route exact path="/" component={Heroes} />
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/heroes" component={Heroes} />
           <p className="App-intro">
             To get started, edit <code>src/App.tsx</code> and save to reload.
