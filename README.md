@@ -7,6 +7,6 @@ The main goal was trying to use same folder structures from the tutorial and mod
    
    2. All services belong to services layer.
    
-   3. And also make sure that each feature will have its own folder with actual codes, services, templates, etc.
+   3. And also make sure that each feature will have its own folder with actual codes, services, templates, models.
 
-The key is using tsconfig.json to control how webpack will see the folders while coding in typescript.
+The key is using tsconfig.json to control how webpack will see the folders while coding in typescript.  After the paths' changes in tsconfig.json, any models, services can be easily moved around without following all the TypeScript files to correct the reference path of a moved dependency.
